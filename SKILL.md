@@ -2,7 +2,7 @@ SKILL.md — Skill: video-downloader
 Ultima modifica: 2026-10-30
 
 1. Scopo
-Unifica il download e la trascrizione di video (YouTube, Udemy, Vimeo, …) in un’unica operazione. Riconosce la piattaforma dagli URL, estrae l’audio, lo trascrive con modello locale (`mlx-whisper` tramite `lecture-transcribe.py`) e applica OCR se richiesto. Non inventa contenuti — trascrive fedelmente. Non salva video pesanti nel KB (`3 - CONOSCENZA/`).
+Unifica il download e la trascrizione di video (YouTube, Udemy, Vimeo, …) in un’unica operazione. Riconosce la piattaforma dagli URL, estrae l’audio, lo trascrive con modello locale (`mlx-whisper` tramite `lecture-transcribe.py`) e applica OCR se richiesto. Non inventa contenuti — trascrive fedelmente. Non salva video pesanti nel Knowledge Base.
 
 2. Trigger parole-chiave
 - `scarica video YouTube`
@@ -13,8 +13,8 @@ Unifica il download e la trascrizione di video (YouTube, Udemy, Vimeo, …) in u
 - `/video-downloader`
 
 3. Input
-- `**url**`: string — link YouTube / Udemy / Vimeo / altro
-- `**ocr**`: boolean (opzionale) — OCR frame ogni 20s (default: false)
+- **`**url**`: string — link YouTube / Udemy / Vimeo / altro
+- **`**ocr**`: boolean (opzionale) — OCR frame ogni 20s (default: false)
 - **`**lang**`: string (opzionale) — `it`, `en`, `auto` (default: auto)
 - **`**out**`: string (opzionale) — cartella output (default: `./downloads`)
 
@@ -35,13 +35,13 @@ Unifica il download e la trascrizione di video (YouTube, Udemy, Vimeo, …) in u
 - macOS Apple Silicon (MLX Whisper usa Metal)
 - `yt-dlp` (`brew install yt-dlp`)
 - `ffmpeg` (`brew install ffmpeg`)
-- `python` venv `~/.venvs/lecture-transcriber/`
+- `python` venv `~/.venvs/lecture-transcriber/` (o percorso personalizzato)
 - Non serve `sudo`
 
 7. Limitazioni
 - Non inventare contenuti — solo trascrizione locale.
-- Non duplicare video pesanti nel KB.
-- Non modificare `.md` originali nel KB (Atomic Markdown rule).
+- Non duplicare video pesanti nel Knowledge Base.
+- Non modificare `.md` originali nel Knowledge Base (Atomic Markdown rule).
 - Per Udemy: cookie richiesto (`udemy-dl` con `--cookies`).
 - Per audio multi-lingua: se `auto` non riconosce → forzare `--lang`.
 
@@ -60,7 +60,7 @@ video-downloader "https://www.udemy.com/course/xxxxx/" --out ./my-courses --lang
 9. Relazioni
 - **Dipende da**: `lecture-transcriber` (ASR + OCR), `udemy-dl` (cookie Udemy), `ponytail` (minimal, native prima di dipendenze).
 - **Complementare**: `icm-architect` (per audit workspace), `agent-reach` (ricerca riferimenti).
-- **Non tocca**: file `.md` originali del KB (`3 - CONOSCENZA/`).
+- **Non tocca**: file `.md` originali del Knowledge Base.
 
 10. Relazioni con altre skill
 - `udemy-dl` — per cookie Udemy

@@ -5,13 +5,13 @@ Scarica e trascrivi video da YouTube, Udemy, Vimeo e altre piattaforme usando to
 ## Requisiti
 - `yt-dlp`
 - `ffmpeg`
-- Python 3 + venv con `mlx-whisper` e `lecture_transcribe.py` (skill esistente: `6 - OUTPUT/61 - SKILLS/VIDEODOWNLOADER/skills/lecture-transcriber` oppure `~/.venvs/lecture-transcriber`)
+- Python 3 + venv con `mlx-whisper` e `lecture_transcribe.py` (vedi sezione "Configurazione")
 
 ## Installazione
 
 1. Clona questo repo:
    ```bash
-   git clone https://github.com/tuo-utente/video-downloader.git
+   git clone https://github.com/Bebbolus/video-downloader.git
    cd video-downloader
    ```
 
@@ -27,11 +27,11 @@ Scarica e trascrivi video da YouTube, Udemy, Vimeo e altre piattaforme usando to
    chmod +x bin/video-downloader.sh
    ```
 
-4. Imposta le variabili d'ambiente (opzionale, oppure modifica i valori di default nello script):
+4. Configura le variabili d'ambiente per puntare alla skill `lecture-transcriber`:
    ```bash
-   export VIDEO_DOWNLOADER_SKILL_DIR=/percorso/al/skills/lecture-transcriber
+   export VIDEO_DOWNLOADER_SKILL_DIR=/percorso/alla/skill/lecture-transcriber
    export VIDEO_DOWNLOADER_PYTHON=python3
-   export VIDEO_DOWNLOADER_OUTDIR=/tuo/output/dir
+   export VIDEO_DOWNLOADER_OUTDIR=./downloads
    ```
 
 ## Uso
@@ -47,7 +47,7 @@ bash bin/video-downloader.sh "https://youtu.be/VIDEO_ID" --ocr
 bash bin/video-downloader.sh "https://youtu.be/VIDEO_ID" --lang it --out ./my-trascrizioni
 ```
 
-## Variabili d’ambiente
+## Variabili d'ambiente
 
 | Variabile | Default | Descrizione |
 |---|---|---|
@@ -58,7 +58,7 @@ bash bin/video-downloader.sh "https://youtu.be/VIDEO_ID" --lang it --out ./my-tr
 ## Note di sicurezza
 
 - **Non contiene segreti, cookie, password o dati personali** — i file sono generici e pronti per la pubblicazione su GitHub.
-- **Non salva video pesanti** nel KB (`3 - CONOSCENZA/`). Solo audio + trascrizione markdown.
+- **Non salva video pesanti** nella knowledge base. Solo audio + trascrizione markdown.
 - Per Udemy, i cookie sono responsabilità dell'utente (`udemy-dl` con `--cookies`). Questo script usa `yt-dlp` come fallback.
 - Tutti i percorsi sono parametrizzabili via variabili d'ambiente per evitare hardcoding.
 
